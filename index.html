@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allegiant Services - Trusted Medical Billing & RCM Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,6 +18,12 @@
             line-height: 1.6;
             color: #333;
         }
+
+        /* body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        } */
 
         /* Header */
         .header {
@@ -86,11 +93,13 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(0,51,102,0.9), rgba(30,87,153,0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><circle fill="%23e6f3ff" cx="200" cy="150" r="80"/><circle fill="%23ddeeff" cx="800" cy="200" r="60"/><circle fill="%23d4e9ff" cx="1000" cy="400" r="100"/></svg>');
+            background: linear-gradient(135deg, rgba(0,51,102,0.5), rgba(30,87,153,0.5)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             color: white;
             padding: 150px 0 100px;
             text-align: center;
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .hero-content {
@@ -232,6 +241,21 @@
             padding: 80px 0;
             background: linear-gradient(135deg, #003366, #1e5799);
             color: white;
+            position: relative;
+        }
+
+        .why-choose .section-title h2 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .why-choose .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            font-weight: 400;
         }
 
         .features-grid {
@@ -239,6 +263,8 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-item {
@@ -408,10 +434,35 @@
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #003366;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 0.5rem 2rem;
             }
 
             .mobile-menu {
                 display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: white;
             }
 
             .hero h1 {
@@ -826,6 +877,10 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu when a link is clicked
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('active');
+                    }
                 }
             });
         });
@@ -835,7 +890,21 @@
         const navMenu = document.querySelector('.nav-menu');
 
         mobileMenu.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+            }
         });
 
         // Form submission
