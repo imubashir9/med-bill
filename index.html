@@ -6,6 +6,7 @@
     <title>Allegiant Services - Trusted Medical Billing & RCM Services</title>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -434,14 +435,16 @@
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 70px;
                 left: 0;
                 width: 100%;
+                height: calc(100vh - 70px);
                 background: #003366;
                 flex-direction: column;
-                padding: 1rem 0;
+                padding: 2rem 0;
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                z-index: 1000;
             }
 
             .nav-menu.active {
@@ -449,20 +452,37 @@
             }
 
             .nav-menu li {
-                margin: 0.5rem 0;
+                margin: 1rem 0;
                 text-align: center;
             }
 
             .nav-menu a {
                 display: block;
-                padding: 0.5rem 2rem;
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+                color: white;
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu a:hover {
+                background: rgba(255, 255, 255, 0.1);
             }
 
             .mobile-menu {
                 display: block;
                 cursor: pointer;
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 color: white;
+                padding: 0.5rem;
+                z-index: 1001;
+            }
+
+            .mobile-menu i {
+                transition: transform 0.3s ease;
+            }
+
+            .mobile-menu.active i {
+                transform: rotate(90deg);
             }
 
             .hero h1 {
@@ -891,19 +911,34 @@
 
         mobileMenu.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
 
         // Close mobile menu on window resize
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
 
