@@ -1,970 +1,842 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allegiant Services - Trusted Medical Billing & RCM Services</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        } */
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #003366 0%, #1e5799 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #87CEEB;
-        }
-
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(0,51,102,0.5), rgba(30,87,153,0.5)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #87CEEB;
-            color: #003366;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Services Overview */
-        .services-overview {
-            padding: 80px 0;
-            background: #f8fafb;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #003366;
-            margin-bottom: 1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #003366;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            color: #003366;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Industries Section */
-        .industries {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .industry-item {
-            background: linear-gradient(135deg, #f8fafb, #e6f3ff);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 4px solid #003366;
-            transition: all 0.3s;
-        }
-
-        .industry-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Why Choose Section */
-        .why-choose {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #003366, #1e5799);
-            color: white;
-            position: relative;
-        }
-
-        .why-choose .section-title h2 {
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .why-choose .section-title p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: #87CEEB;
-            margin-top: 0.5rem;
-        }
-
-        .feature-content h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-            background: #f8fafb;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border: 3px solid #003366;
-            transform: scale(1.05);
-        }
-
-        .pricing-card h3 {
-            color: #003366;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #003366;
-            margin-bottom: 1rem;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 2rem;
-        }
-
-        .contact-info {
-            padding: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: #003366;
-            width: 30px;
-        }
-
-        .contact-form {
-            background: #f8fafb;
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #003366;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        /* Footer */
-        .footer {
-            background: #003366;
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #87CEEB;
-        }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #87CEEB;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e5799;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: #003366;
-                flex-direction: column;
-                padding: 2rem 0;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .nav-menu li {
-                margin: 1rem 0;
-                text-align: center;
-            }
-
-            .nav-menu a {
-                display: block;
-                padding: 1rem 2rem;
-                font-size: 1.2rem;
-                color: white;
-                transition: all 0.3s ease;
-            }
-
-            .nav-menu a:hover {
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            .mobile-menu {
-                display: block;
-                cursor: pointer;
-                font-size: 1.8rem;
-                color: white;
-                padding: 0.5rem;
-                z-index: 1001;
-            }
-
-            .mobile-menu i {
-                transition: transform 0.3s ease;
-            }
-
-            .mobile-menu.active i {
-                transform: rotate(90deg);
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allegiant Services Inc | Medical Billing</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1C3D6E;
+      --accent-white: #FFFFFF;
+      --light-gray: #F5F5F5;
+      --dark-gray: #555555;
+      --footer-gradient: linear-gradient(90deg, #1C3D6E 0%, #16305a 100%);
+      --glass-bg: rgba(255,255,255,0.18);
+      --glass-blur: blur(16px);
+      --shadow: 0 8px 32px 0 rgba(28,61,110,0.18);
+      --transition: 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      color: var(--dark-gray);
+      background: var(--light-gray);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--primary-blue); }
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1.5px solid #e0eafc;
+      box-shadow: 0 4px 24px rgba(28,61,110,0.10);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 3rem;
+      transition: background 0.2s, border 0.2s;
+    }
+    .navbar .logo img {
+      height: 54px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      transition: height 0.2s;
+      filter: drop-shadow(0 2px 8px rgba(28,61,110,0.10));
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(28,61,110,0.10);
+      border: 2px solid #e0eafc;
+    }
+    .navbar nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .navbar nav a {
+      font-weight: 600;
+      color: var(--primary-blue);
+      position: relative;
+      padding: 0.7rem 0.6rem;
+      font-size: 1.08rem;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .navbar nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: var(--primary-blue);
+      border-radius: 2px;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0; bottom: 0;
+    }
+    .navbar nav a:hover::after, .navbar nav a:focus::after {
+      width: 100%;
+    }
+    .navbar nav a:hover, .navbar nav a:focus {
+      background: #f5f7fa;
+      color: #16305a;
+    }
+    /* Hamburger for mobile */
+    #nav-toggle { display: none; }
+    .nav-toggle-label { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .nav-toggle-label span {
+      display: block; width: 28px; height: 3px; background: var(--primary-blue); border-radius: 2px; transition: 0.3s;
+    }
+    @media (max-width: 900px) {
+      .navbar nav {
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(255,255,255,0.98);
+        flex-direction: column; align-items: flex-start; gap: 0;
+        padding: 0.5rem 2.5rem; max-height: 0; overflow: hidden;
+        transition: max-height 0.3s;
+      }
+      .navbar nav a { padding: 1rem 0; width: 100%; border-bottom: 1px solid #eee; }
+      #nav-toggle:checked + .nav-toggle-label + nav { max-height: 500px; transition: max-height 0.4s; }
+      .nav-toggle-label { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .navbar { padding: 0.5rem 1rem; }
+      .navbar .logo img { height: 36px; max-width: 110px; }
+    }
+    /* Luxurious Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(28,61,110,0.7), rgba(28,61,110,0.7)), url('bg.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 90px;
+    }
+    .hero-glass {
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--glass-blur);
+      border-radius: 32px;
+      padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+      margin-bottom: 7vh;
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1);
+    }
+    .hero-glass h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(28,61,110,0.10);
+    }
+    .hero-glass p {
+      font-size: 1.3rem;
+      color: var(--dark-gray);
+      margin-bottom: 2.2rem;
+    }
+    .hero-glass .cta-btn {
+      background: linear-gradient(90deg, #1C3D6E 60%, #4788FF 100%);
+      color: #fff;
+      border: none;
+      padding: 1.1rem 2.8rem;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(28,61,110,0.10);
+      transition: background 0.2s, transform 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .hero-glass .cta-btn:hover {
+      background: #16305a;
+      transform: translateY(-2px) scale(1.04);
+    }
+    /* SVG Wave */
+    .hero-wave {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      width: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    /* Section Styles */
+    section { padding: 4.5rem 1.2rem; max-width: 1300px; margin: 0 auto; }
+    section h2 {
+      color: var(--primary-blue);
+      font-size: 2.3rem;
+      margin-bottom: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+      animation: fadeIn 1.2s;
+    }
+    /* About Us */
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.18rem;
+      color: #222;
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 2.5rem 1.5rem;
+      backdrop-filter: var(--glass-blur);
+      animation: fadeInUp 1.2s 0.2s backwards;
+    }
+    /* Services */
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2.2rem;
+      margin-top: 2.5rem;
+    }
+    .service-card {
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      backdrop-filter: var(--glass-blur);
+      animation: fadeInUp 1.2s 0.3s backwards;
+      position: relative;
+    }
+    .service-card img {
+      width: 64px; height: 64px; object-fit: cover; border-radius: 12px; margin-bottom: 1.1rem; box-shadow: 0 2px 8px rgba(28,61,110,0.10);
+    }
+    .service-card h3 {
+      color: var(--primary-blue);
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .service-card p { font-size: 1.05rem; color: #333; }
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 12px 32px rgba(28,61,110,0.18);
+    }
+    /* Specialties */
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .specialty {
+      background: var(--glass-bg);
+      border-radius: 12px;
+      padding: 1.5rem 0.5rem;
+      text-align: center;
+      font-size: 1.08rem;
+      color: var(--primary-blue);
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column; align-items: center;
+      transition: background var(--transition), transform var(--transition);
+      animation: fadeInUp 1.2s 0.4s backwards;
+    }
+    .specialty svg {
+      width: 36px; height: 36px; margin-bottom: 0.7rem; fill: var(--primary-blue);
+    }
+    .specialty:hover {
+      background: rgba(28,61,110,0.08);
+      transform: translateY(-4px) scale(1.03);
+    }
+    /* Testimonials */
+    .testimonials-section {
+      background: linear-gradient(90deg, #e0eafc 0%, #cfdef3 100%);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+      margin: 3rem 0;
+      animation: fadeIn 1.2s 0.5s backwards;
+    }
+    .testimonials-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-top: 2.2rem;
+    }
+    .testimonial {
+      background: var(--accent-white);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(28,61,110,0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      max-width: 340px;
+      flex: 1 1 300px;
+      text-align: center;
+      animation: fadeInUp 1.2s 0.6s backwards;
+    }
+    .testimonial img {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--primary-blue);
+    }
+    .testimonial p { font-size: 1.08rem; color: #222; margin-bottom: 1rem; }
+    .testimonial strong { color: var(--primary-blue); font-size: 1.05rem; }
+    /* Compliance */
+    .compliance-section {
+      margin: 3rem 0;
+      padding: 3.5rem 1.2rem;
+      max-width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .compliance-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .compliance-card {
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .compliance-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(28,61,110,0.15);
+    }
+    .compliance-card svg {
+      width: 36px; height: 36px; margin-bottom: 0.7rem;
+    }
+    .compliance-card-title {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 0.5rem;
+      font-size: 1.13rem;
+      text-align: center;
+    }
+    .compliance-card-desc {
+      color: #333;
+      font-size: 1rem;
+      text-align: center;
+    }
+    /* Pricing */
+    .pricing-section {
+      margin: 3rem 0;
+      padding: 3.5rem 1.2rem;
+      max-width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 2.5rem auto 0 auto;
+      justify-content: center;
+    }
+    .pricing-card {
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 2.2rem 1.5rem;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(28,61,110,0.15);
+    }
+    .pricing-card svg {
+      width: 40px; height: 40px; margin-bottom: 1rem;
+    }
+    .pricing-card-title {
+      font-weight: 700;
+      color: var(--primary-blue);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .pricing-card-desc {
+      color: #333;
+      font-size: 1rem;
+      text-align: center;
+    }
+    /* Contact */
+    .contact-info {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.13rem;
+      color: #222;
+      animation: fadeIn 1.2s 0.9s backwards;
+    }
+    .contact-form {
+      max-width: 420px;
+      margin: 0 auto;
+      background: var(--glass-bg);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      animation: fadeInUp 1.2s 1s backwards;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.9rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      resize: none;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border: 1.5px solid var(--primary-blue);
+    }
+    .contact-form button {
+      background: linear-gradient(90deg, #1C3D6E 60%, #4788FF 100%);
+      color: var(--accent-white);
+      border: none;
+      padding: 0.9rem 0;
+      font-size: 1.13rem;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background: #16305a;
+      transform: translateY(-2px) scale(1.04);
+    }
+    /* Floating Contact Button */
+    .floating-contact {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      background: linear-gradient(90deg, #1C3D6E 60%, #4788FF 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px; height: 60px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      font-size: 2rem;
+      z-index: 2000;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeIn 1.2s 1.1s backwards;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .floating-contact:hover { background: #16305a; transform: scale(1.08); }
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 110px; right: 36px;
+      background: #2a4d7f;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      font-size: 1.5rem;
+      z-index: 2000;
+      cursor: pointer;
+      display: none; align-items: center; justify-content: center;
+      animation: fadeIn 1.2s 1.2s backwards;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .back-to-top.show { display: flex; }
+    .back-to-top:hover { background: #1C3D6E; transform: scale(1.08); }
+    /* Footer */
+    footer {
+      background: var(--footer-gradient);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      font-size: 1.1rem;
+      margin-top: 3rem;
+      border-radius: 32px 32px 0 0;
+      box-shadow: 0 -4px 24px rgba(28,61,110,0.10);
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1.5px solid rgba(255,255,255,0.12);
+    }
+    .footer-logo img {
+      height: 48px;
+      margin-bottom: 1rem;
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(28,61,110,0.10);
+      border: 2px solid #e0eafc;
+      filter: drop-shadow(0 2px 8px rgba(28,61,110,0.10));
+    }
+    .footer-socials {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .footer-socials a {
+      display: inline-flex;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      color: #fff;
+      align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .footer-socials a:hover { background: #4788FF; transform: scale(1.12); }
+    .footer-newsletter {
+      max-width: 340px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .footer-newsletter label {
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .footer-newsletter input[type="email"] {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border-radius: 24px;
+      border: none;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+      outline: none;
+    }
+    .footer-newsletter button {
+      background: linear-gradient(90deg, #1C3D6E 60%, #4788FF 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .footer-newsletter button:hover { background: #4788FF; transform: scale(1.05); }
+    .footer-bottom {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Responsive Styles */
+    @media (max-width: 900px) {
+      section { padding: 2.5rem 0.5rem; }
+      .footer-content { flex-direction: column; align-items: center; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .hero-glass { padding: 2rem 0.7rem; }
+      .testimonials-section { padding: 2rem 0.5rem; }
+      .footer-content { padding-bottom: 1rem; }
+      .footer-logo img { height: 36px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <img src="logo.jpg" alt="Allegiant Services Logo">
-                </div>
-                <span>Allegiant Services</span>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#specialties">Specialties</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="logo.jpg" alt="Allegiant Services Inc Logo" />
+      </div>
+      <input type="checkbox" id="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#specialties">Specialties</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-glass">
+      <h1>Empowering Healthcare Through Trusted Medical Billing</h1>
+      <p>Comprehensive RCM Solutions for Every Practice</p>
+      <a href="#contact" class="cta-btn">Get Started</a>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#F5F5F5" fill-opacity="1" d="M0,64L60,80C120,96,240,128,360,133.3C480,139,600,117,720,117.3C840,117,960,139,1080,138.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+  </section>
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about-content">
+      <p>Based in Northern Virginia, Washington DC, USA, Allegiant Services Inc is a trusted revenue cycle management provider for U.S. healthcare practices. We offer personalized onboarding and seamless integration with healthcare providers, ensuring your practice's financial health and compliance.</p>
+    </div>
+  </section>
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-list">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=200&q=80" alt="Eligibility & Insurance Verification" />
+        <h3>Eligibility & Insurance Verification</h3>
+        <p>Comprehensive verification of patient insurance coverage and benefits to ensure accurate billing and reduce claim denials.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=200&q=80" alt="Credentialing Support" />
+        <h3>Credentialing Support</h3>
+        <p>Complete provider credentialing services to ensure your practice is properly enrolled with insurance networks.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?auto=format&fit=crop&w=200&q=80" alt="Virtual Front Desk Assistance" />
+        <h3>Virtual Front Desk Assistance</h3>
+        <p>Professional virtual receptionist services to handle patient inquiries, scheduling, and administrative support.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=200&q=80" alt="Authorization Management" />
+        <h3>Authorization Management</h3>
+        <p>Streamlined prior authorization processes to ensure treatments are approved before services are rendered.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=200&q=80" alt="Charge Entry, Payment Posting" />
+        <h3>Charge Entry, Payment Posting</h3>
+        <p>Accurate charge entry and timely payment posting to maintain clean and up-to-date patient accounts.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=200&q=80" alt="Claims Management, AR Follow-up" />
+        <h3>Claims Management, AR Follow-up</h3>
+        <p>Professional claims processing and submission to maximize first-pass resolution rates and accelerate reimbursements.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=200&q=80" alt="Rejection/Denial Resolution" />
+        <h3>Rejection/Denial Resolution</h3>
+        <p>Expert analysis and resolution of claim rejections and denials to maximize revenue recovery.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=200&q=80" alt="Monthly Financial Reporting" />
+        <h3>Monthly Financial Reporting</h3>
+        <p>Comprehensive monthly reports providing insights into your practice's financial performance and key metrics.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Specialties -->
+  <section id="specialties">
+    <h2>Specialties</h2>
+    <div class="specialties-grid">
+      <div class="specialty">
+        <!-- Pediatric: Baby icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><circle cx="12" cy="12" r="10" fill="#F5F5F5"/><circle cx="12" cy="12" r="5" stroke="#1C3D6E" stroke-width="2" fill="none"/><circle cx="10" cy="11" r="1" fill="#1C3D6E"/><circle cx="14" cy="11" r="1" fill="#1C3D6E"/><path d="M10 15c1.5 1 2.5 1 4 0" stroke="#1C3D6E" stroke-width="1.5" fill="none"/></svg>
+        Pediatric
+      </div>
+      <div class="specialty">
+        <!-- Family Medicine: Heart in hands -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><path d="M12 21s-6-4.35-6-8.5A4.5 4.5 0 0 1 12 8a4.5 4.5 0 0 1 6 4.5C18 16.65 12 21 12 21z" stroke="#1C3D6E" stroke-width="2" fill="#F5F5F5"/><circle cx="9.5" cy="12" r="1" fill="#1C3D6E"/><circle cx="14.5" cy="12" r="1" fill="#1C3D6E"/></svg>
+        Family Medicine
+      </div>
+      <div class="specialty">
+        <!-- Internal Medicine: Stethoscope (already present) -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><circle cx="20" cy="4" r="2" fill="#1C3D6E"/><path d="M7 6v6a5 5 0 0 0 10 0V6" stroke="#1C3D6E" stroke-width="2" fill="none"/><path d="M12 17v3m-2 0h4" stroke="#1C3D6E" stroke-width="2" stroke-linecap="round"/></svg>
+        Internal Medicine
+      </div>
+      <div class="specialty">
+        <!-- Rheumatology: DNA helix (already present) -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><ellipse cx="12" cy="12" rx="10" ry="4" fill="#F5F5F5"/><path d="M8 8c2 2 6 6 8 8M8 16c2-2 6-6 8-8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        Rheumatology
+      </div>
+      <div class="specialty">
+        <!-- Urgent Care: Medical cross in circle -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><circle cx="12" cy="12" r="10" fill="#F5F5F5"/><rect x="10" y="7" width="4" height="10" fill="#1C3D6E"/><rect x="7" y="10" width="10" height="4" fill="#1C3D6E"/></svg>
+        Urgent Care
+      </div>
+      <div class="specialty">
+        <!-- Behavioral Health: Brain icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><ellipse cx="12" cy="12" rx="10" ry="7" fill="#F5F5F5"/><path d="M8 12c0-2 2-4 4-4s4 2 4 4-2 4-4 4-4-2-4-4z" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        Behavioral Health
+      </div>
+      <div class="specialty">
+        <!-- Chiropractic: Spine icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><rect x="10" y="4" width="4" height="16" rx="2" fill="#F5F5F5" stroke="#1C3D6E" stroke-width="2"/><circle cx="12" cy="8" r="1" fill="#1C3D6E"/><circle cx="12" cy="12" r="1" fill="#1C3D6E"/><circle cx="12" cy="16" r="1" fill="#1C3D6E"/></svg>
+        Chiropractic
+      </div>
+      <div class="specialty">
+        <!-- Podiatry: Foot icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><ellipse cx="16" cy="18" rx="5" ry="2" fill="#F5F5F5"/><path d="M7 17c2-6 8-6 10 0" stroke="#1C3D6E" stroke-width="2" fill="none"/><circle cx="7" cy="17" r="1" fill="#1C3D6E"/></svg>
+        Podiatry
+      </div>
+      <div class="specialty">
+        <!-- Cardiology: Heartbeat icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><path d="M2 12h4l2 7 4-14 2 7h4" stroke="#1C3D6E" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="10" fill="#F5F5F5" fill-opacity="0.3"/></svg>
+        Cardiology
+      </div>
+      <div class="specialty">
+        <!-- Nephrology: Kidney icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><ellipse cx="8" cy="12" rx="4" ry="7" fill="#F5F5F5"/><ellipse cx="16" cy="12" rx="4" ry="7" fill="#F5F5F5"/><path d="M8 5v14M16 5v14" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        Nephrology
+      </div>
+      <div class="specialty">
+        <!-- Physiatry: Rehabilitation icon (person with cane) -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><circle cx="12" cy="12" r="10" fill="#F5F5F5"/><circle cx="12" cy="10" r="2" fill="#1C3D6E"/><rect x="11" y="12" width="2" height="5" fill="#1C3D6E"/><rect x="13" y="16" width="1" height="3" fill="#1C3D6E"/><rect x="10" y="16" width="1" height="2" fill="#1C3D6E"/></svg>
+        Physiatry
+      </div>
+      <div class="specialty">
+        <!-- Mental Health: Lotus/meditation icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:0.5rem;"><ellipse cx="12" cy="18" rx="7" ry="2" fill="#F5F5F5"/><path d="M12 18c-2-2-2-6 0-8 2 2 2 6 0 8z" stroke="#1C3D6E" stroke-width="2" fill="none"/><circle cx="12" cy="10" r="2" fill="#1C3D6E"/></svg>
+        Mental Health
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials -->
+  <section class="testimonials-section" id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-list">
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Smith" />
+        <p>"Allegiant Services streamlined our billing and improved our revenue cycle. Highly recommended!"</p>
+        <strong>- Dr. Smith, Family Medicine</strong>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Patel" />
+        <p>"Their team is responsive, knowledgeable, and truly cares about our practice's success."</p>
+        <strong>- Dr. Patel, Pediatrics</strong>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Dr. Lee" />
+        <p>"We saw a 30% reduction in claim denials after switching to Allegiant Services."</p>
+        <strong>- Dr. Lee, Cardiology</strong>
+      </div>
+    </div>
+  </section>
+  <!-- Compliance -->
+  <section id="compliance" class="compliance-section">
+    <h2>HIPAA Compliance</h2>
+    <div class="compliance-cards">
+      <div class="compliance-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="10" rx="5" fill="#F5F5F5"/><path d="M7 12h10" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="compliance-card-title">Secure Data Handling</div>
+        <div class="compliance-card-desc">All patient data is encrypted and managed with strict protocols to ensure privacy and security.</div>
+      </div>
+      <div class="compliance-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#F5F5F5"/><path d="M8 12h8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="compliance-card-title">Encrypted Communication</div>
+        <div class="compliance-card-desc">All communications are protected with end-to-end encryption for maximum confidentiality.</div>
+      </div>
+      <div class="compliance-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="8" fill="#F5F5F5"/><path d="M12 8v8M8 12h8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="compliance-card-title">Staff HIPAA Training</div>
+        <div class="compliance-card-desc">Our team is regularly trained and certified in HIPAA compliance and best practices.</div>
+      </div>
+      <div class="compliance-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4" fill="#F5F5F5"/><path d="M8 8c2 2 6 6 8 8M8 16c2-2 6-6 8-8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="compliance-card-title">Role-based Access Control</div>
+        <div class="compliance-card-desc">Access to sensitive data is strictly controlled and monitored by user role.</div>
+      </div>
+    </div>
+  </section>
+  <!-- Pricing -->
+  <section id="pricing" class="pricing-section">
+    <h2>Pricing</h2>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#F5F5F5"/><path d="M8 12h8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="pricing-card-title">Zero Setup Fees</div>
+        <div class="pricing-card-desc">Get started with no upfront costs or hidden fees.</div>
+      </div>
+      <div class="pricing-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="8" fill="#F5F5F5"/><path d="M12 8v8M8 12h8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="pricing-card-title">Month-to-Month Contract</div>
+        <div class="pricing-card-desc">Flexible, commitment-free contracts for your convenience.</div>
+      </div>
+      <div class="pricing-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4" fill="#F5F5F5"/><path d="M8 8c2 2 6 6 8 8M8 16c2-2 6-6 8-8" stroke="#1C3D6E" stroke-width="2" fill="none"/></svg>
+        <div class="pricing-card-title">Performance-Based Fee</div>
+        <div class="pricing-card-desc">Pay only a percentage of collections—our success is tied to yours.</div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +1 (202) 688-9166</p>
+      <p><strong>Email:</strong> info@allegiant-medicalbilling.com</p>
+      <p><strong>Website:</strong> www.allegiant-medicalbilling.com</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <!-- Floating Contact Button -->
+  <button class="floating-contact" onclick="window.location='#contact'" aria-label="Contact Us">✉️</button>
+  <!-- Back to Top Button -->
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" id="backToTop">↑</button>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.jpg" alt="Allegiant Services Inc Logo" />
+        <div style="font-weight:700;font-size:1.2rem;margin-top:0.5rem;">Allegiant Services Inc</div>
+      </div>
+      <div class="footer-newsletter">
+        <label for="newsletter">Subscribe to our newsletter</label>
+        <input type="email" id="newsletter" placeholder="Your email address" />
+        <button type="button">Subscribe</button>
+      </div>
+      <div>
+        <div style="font-weight:600;margin-bottom:0.7rem;">Follow Us</div>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.733 0-1.325.592-1.325 1.326v21.348c0 .733.592 1.326 1.325 1.326h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.312h3.587l-.467 3.622h-3.12v9.294h6.116c.729 0 1.321-.593 1.321-1.326v-21.349c0-.734-.592-1.326-1.325-1.326z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482c-4.083-.205-7.697-2.162-10.125-5.138a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.514 14.009-14.009 0-.213-.005-.425-.014-.636a10.012 10.012 0 0 0 2.457-2.548z"/></svg></a>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content fade-in">
-            <h1>Trusted Medical Billing & RCM Services for Every Practice</h1>
-            <p>Maximize your revenue with our comprehensive medical billing solutions. From patient demographics to denial management, we handle it all.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get Started</a>
-                <a href="#services" class="btn btn-secondary">Request a Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Overview -->
-    <section id="services" class="services-overview">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Services</h2>
-                <p>Comprehensive medical billing solutions tailored to your practice needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Revenue Cycle Management</h3>
-                    <p>Complete RCM solutions from patient registration to final payment collection</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-file-medical"></i>
-                    </div>
-                    <h3>Claims Management</h3>
-                    <p>Expert claims submission, tracking, and denial management for maximum reimbursement</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Eligibility Verification</h3>
-                    <p>Real-time insurance verification to reduce claim rejections and improve cash flow</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>AR Follow-Up</h3>
-                    <p>Proactive accounts receivable management and credit balance resolution</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Credentialing Services</h3>
-                    <p>Complete provider credentialing and re-credentialing with all major payers</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Virtual Front Desk</h3>
-                    <p>Professional virtual assistants for appointment scheduling and patient support</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries/Specialties -->
-    <section id="specialties" class="industries">
-        <div class="container">
-            <div class="section-title">
-                <h2>Medical Specialties We Serve</h2>
-                <p>Expert billing solutions across multiple healthcare specialties</p>
-            </div>
-            <div class="industries-grid">
-                <div class="industry-item">Rheumatology</div>
-                <div class="industry-item">Family Medicine</div>
-                <div class="industry-item">Internal Medicine</div>
-                <div class="industry-item">Urgent Care</div>
-                <div class="industry-item">Behavioral Health</div>
-                <div class="industry-item">Chiropractic</div>
-                <div class="industry-item">Nephrology</div>
-                <div class="industry-item">Cardiology</div>
-                <div class="industry-item">Mental Health</div>
-                <div class="industry-item">Pain Management</div>
-                <div class="industry-item">Dental Billing</div>
-                <div class="industry-item">Physiatry Billing</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Allegiant -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Allegiant Services?</h2>
-                <p>Proven expertise with measurable results</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Global Team, Local Expertise</h4>
-                        <p>With offices in Northern Virginia and Lahore, we provide 24/7 support across time zones.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-percentage"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Transparent Pricing</h4>
-                        <p>Simple percentage-based fees with no hidden costs or setup charges.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>HIPAA Compliant</h4>
-                        <p>Full compliance with healthcare regulations and data security standards.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Fast Implementation</h4>
-                        <p>Quick onboarding process with dedicated support throughout transition.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Detailed Reporting</h4>
-                        <p>Monthly performance reports and fee schedule analysis for maximum transparency.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Advanced Technology</h4>
-                        <p>EDI integration and automation tools for improved efficiency and accuracy.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Transparent Pricing</h2>
-                <p>Simple, straightforward pricing with no hidden fees</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Medical Billing</h3>
-                    <div class="price">4-8%</div>
-                    <div class="price-note">of collections</div>
-                    <ul style="text-align: left; margin: 1rem 0;">
-                        <li>Complete RCM services</li>
-                        <li>Claims submission & follow-up</li>
-                        <li>Denial management</li>
-                        <li>Monthly reporting</li>
-                        <li>Patient billing</li>
-                    </ul>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Insurance Verification</h3>
-                    <div class="price">$3</div>
-                    <div class="price-note">per verification</div>
-                    <ul style="text-align: left; margin: 1rem 0;">
-                        <li>Real-time eligibility checks</li>
-                        <li>Benefits verification</li>
-                        <li>Prior authorization status</li>
-                        <li>Coverage details</li>
-                        <li>Deductible information</li>
-                    </ul>
-                </div>
-                <div class="pricing-card">
-                    <h3>Credentialing</h3>
-                    <div class="price">$300</div>
-                    <div class="price-note">per provider</div>
-                    <ul style="text-align: left; margin: 1rem 0;">
-                        <li>Initial credentialing</li>
-                        <li>Re-credentialing</li>
-                        <li>CAQH maintenance</li>
-                        <li>Payer enrollment</li>
-                        <li>Status tracking</li>
-                    </ul>
-                </div>
-                <div class="pricing-card">
-                    <h3>Virtual Services</h3>
-                    <div class="price">$2,500</div>
-                    <div class="price-note">per month</div>
-                    <ul style="text-align: left; margin: 1rem 0;">
-                        <li>Virtual front desk assistant</li>
-                        <li>Authorization management</li>
-                        <li>Appointment scheduling</li>
-                        <li>Patient communication</li>
-                        <li>Administrative support</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get Started Today</h2>
-                <p>Contact us for a free consultation and custom quote</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>USA Office</strong><br>
-                            Northern Virginia, Washington DC
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Pakistan Office</strong><br>
-                            Gulberg-III, Lahore
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Phone</strong><br>
-                            USA: +1 (202) 688-9166<br>
-                            Pakistan: +92 321 6688277
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong><br>
-                            info@allegiantserv.com
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <div>
-                            <strong>Website</strong><br>
-                            allegiantserv.com
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="practice">Practice Type</label>
-                            <select id="practice" name="practice">
-                                <option value="">Select Practice Type</option>
-                                <option value="family-medicine">Family Medicine</option>
-                                <option value="internal-medicine">Internal Medicine</option>
-                                <option value="urgent-care">Urgent Care</option>
-                                <option value="rheumatology">Rheumatology</option>
-                                <option value="cardiology">Cardiology</option>
-                                <option value="mental-health">Mental Health</option>
-                                <option value="pain-management">Pain Management</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your practice and billing needs..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Allegiant Services Inc</h4>
-                    <p>Your trusted partner for comprehensive medical billing and revenue cycle management solutions.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <a href="#services">Revenue Cycle Management</a>
-                    <a href="#services">Claims Management</a>
-                    <a href="#services">Credentialing</a>
-                    <a href="#services">Virtual Front Desk</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Specialties</h4>
-                    <a href="#specialties">Family Medicine</a>
-                    <a href="#specialties">Urgent Care</a>
-                    <a href="#specialties">Rheumatology</a>
-                    <a href="#specialties">Mental Health</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>USA: +1 (202) 688-9166</p>
-                    <p>Pakistan: +92 321 6688277</p>
-                    <p>Email: info@allegiantserv.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Allegiant Services Inc. All rights reserved. | Privacy Policy | Terms of Service</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu when a link is clicked
-                    if (window.innerWidth <= 768) {
-                        navMenu.classList.remove('active');
-                    }
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Close mobile menu on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will contact you within 24 hours.');
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .industry-item').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 Allegiant Services Inc. All rights reserved.</div>
+  </footer>
+  <script>
+    // Show/hide back to top button
+    window.addEventListener('scroll', function() {
+      var btn = document.getElementById('backToTop');
+      if (window.scrollY > 400) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
